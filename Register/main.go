@@ -3,13 +3,13 @@ package main
 import (
 	"net"
 
-	"github.com/logan-go/bigBarrage/common/gateway"
+	"github.com/logan-go/bigBarrage/common/connectkeeper"
 )
 
-var gatewayList []gateway.Gateway
+var connectKeeperList []connectkeeper.ConnectKeeper
 
 func main() {
-	gatewayList = make(gateway.Gateway, 0)
+	connectKeeperList = make(connectkeeper.ConnectKeeper, 0)
 	ln, err := net.Listen("tcp", 2346)
 	for {
 		conn, _ := ln.Accept()
