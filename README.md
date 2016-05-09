@@ -5,10 +5,11 @@
 主要系统功能：
     ConnectKeeper
         持有和管理所有的用户连接
+        连接Redis进行订阅
     Register
         管理和监控所有ConnectKeeper和MsgSender的活跃状态和负载状态
-    MsgSender
-        从队列里面获取要发送的内容，发送给对应的ConnectKeeper
+    ~~MsgSender~~
+        ~~从队列里面获取要发送的内容，发送给对应的ConnectKeeper~~
 ```
 
 ===
@@ -23,6 +24,10 @@ ROOM：
 Register：
     1.记录所有ConnectKeeper的地址，端口，状态
     2.记录所有MsgKeeper的地址，端口，状态
-    3.
+
+ConnectKeeper：
+    1.维护所有连接
+    2.对所有连接进行房间维护
+    3.定期对Register发送本机的信息，包括：本机所有房间，房间人数，
 
 ```

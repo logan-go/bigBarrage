@@ -1,13 +1,20 @@
 package communication
 
+//消息类型
 const (
-	MESSAGE_CONNECT_KEEPER_REGISTER = iota
+	_ = iota
+	MESSAGE_CONNECT_KEEPER_REGISTER
 	MESSAGE_REPORT_ROOM_INFO
 	MESSAGE_REQUEST_ROOM_INFO
 	MESSAGE_SEND_MESSAGE
 	MESSAGE_HART_BEAT
+	MESSAGE_HAER_BEAT_RETURN
+)
 
-	SERVER_CONNECT_KEEPER = iota
+//服务类型
+const (
+	_ = iota
+	SERVER_CONNECT_KEEPER
 	SERVER_REGISTER
 	SERVER_SENDER
 )
@@ -15,7 +22,8 @@ const (
 //通讯消息体
 //所有服务器间通讯的主结构
 type Message struct {
-	Type int    //信息类型，类型见MESSAGGE_前缀的说明
+	Type int //信息类型，类型见MESSAGGE_前缀的说明
+	ServerInfomation
 	Body string //信息内容
 }
 
@@ -32,7 +40,7 @@ type RoomInfomation struct {
 type MessageForSend struct {
 	RoomID      string //房间类型
 	SendAll     bool   //是否发送给所有人
-	SendPercent int    //发送百分比
+	SendPercent uint   //发送百分比
 }
 
 //服务器信息
