@@ -7,9 +7,9 @@ import (
 )
 
 type ConnectKeeper struct {
-	Host    string           //服务器地址
-	Port    string           //服务器端口
-	RoomMap map[string][]int //
+	Host     string                 //服务器地址
+	Port     string                 //服务器端口
+	RoomList []communication.RoomID //房间列表
 }
 
 //ConnectKeeper使用的连接管理程序

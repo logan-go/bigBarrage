@@ -16,7 +16,6 @@ const (
 	_ = iota
 	SERVER_CONNECT_KEEPER
 	SERVER_REGISTER
-	SERVER_SENDER
 )
 
 //通讯消息体
