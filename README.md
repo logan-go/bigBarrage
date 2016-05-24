@@ -5,6 +5,7 @@
 主要系统功能：
     ConnectKeeper
         持有和管理所有的用户连接
+        管理连接过来的所有房间，房间里面都是连接
         连接Redis进行订阅
     Register
         管理和监控所有ConnectKeeper和MsgSender的活跃状态和负载状态
