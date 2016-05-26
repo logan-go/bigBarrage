@@ -1,9 +1,9 @@
 {
-    "port" : 1238,
-    "openhost" : "127.0.0.1",
-    "reciveips" : [
+    "Port" : 1238,
+    "OpenHost" : "127.0.0.1",
+    "ReciveIPs" : [
         "127.0.0.1"
     ],
-    "errorlogfile" : "./log/error.log",
-    "bootlogfile" : "./log/boot.log"
+    "ErrorLogFile" : "./log/error.log",
+    "BootLogFile" : "./log/boot.log"
 }

@@ -7,6 +7,7 @@ import (
 	"net"
 	"os"
 
+	"github.com/logan-go/bigBarrage/Register/runtime"
 	"github.com/logan-go/bigBarrage/common/communication"
 	"github.com/logan-go/bigBarrage/common/connectkeeper"
 )
@@ -21,32 +22,36 @@ func init() {
 	//加载配置
 	file, err := os.Open(DEFAULT_CONFIG_FILE)
 	if err != nil {
-		fmt.Sprintf(os.Stderr, "Load config file failed : "+err.Error())
+		fmt.Fprintln(os.Stderr, "Load config file failed : "+err.Error())
 		os.Exit(1)
 	}
-	content := make([]byte, 0)
-	file.Read(&content)
+	content := make([]byte, 1024)
+	file.Read(content)
+	fmt.Println(string(content))
 
-	RegisterConfig = &RegisterConf{}
-	json.Unmarshal(content)
-
+	fmt.Printf("%v\n", runtime.RegisterConfig)
+	json.Unmarshal(content, &runtime.RegisterConfig)
+	fmt.Printf("%v\n", runtime.RegisterConfig)
 }
 
 func main() {
-	connectKeeperList = make(connectkeeper.ConnectKeeper, 0)
-	ln, err := net.Listen("tcp", RegisterConfig.Port)
+	/**
+	connectKeeperList = make([]connectkeeper.ConnectKeeper, 0)
+	ln, _ := net.Listen("tcp", runtime.RegisterConfig.OpenHost+fmt.Sprint(runtime.RegisterConfig.Port))
 	for {
 		conn, _ := ln.Accept()
 		go holdConnects(conn)
 	}
+	**/
 }
 
 func holdConnects(conn net.Conn) {
 	defer conn.Close()
 	reader := bufio.NewReader(conn)
-	msg := ""
+	msg := []byte("")
 	for {
-		msg = ""
-		msg = reader.ReadBytes(communication.NORMAL_SEPARATOR)
+		msg = []byte("")
+		msg, _ = reader.ReadBytes(communication.NORMAL_SEPARATOR)
+		fmt.Println(msg)
 	}
 }

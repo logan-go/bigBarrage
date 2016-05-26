@@ -1,4 +1,4 @@
-package main
+package config
 
 //配置选项
 var RegisterConfig *RegisterConf
@@ -18,5 +18,5 @@ type RegisterConf struct {
 }
 
 func (rc *RegisterConf) SetReciveIPs() error {
-
+	return nil
 }
