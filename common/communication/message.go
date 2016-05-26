@@ -18,6 +18,10 @@ const (
 	SERVER_REGISTER
 )
 
+const (
+	NORMAL_SEPARATOR = byte(30)
+)
+
 //通讯消息体
 //所有服务器间通讯的主结构
 type Message struct {

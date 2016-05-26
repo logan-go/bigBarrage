@@ -1,0 +1,9 @@
+{
+    "port" : 1238,
+    "openhost" : "127.0.0.1",
+    "reciveips" : [
+        "127.0.0.1"
+    ],
+    "errorlogfile" : "./log/error.log",
+    "bootlogfile" : "./log/boot.log"
+}
