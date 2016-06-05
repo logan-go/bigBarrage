@@ -14,17 +14,17 @@ type ConnectKeeper struct {
 
 //ConnectKeeper使用的连接管理程序
 type BarrageConn struct {
-	Conn     net.Conn               //长连接资源
+	Conn     *net.Conn              //长连接资源
 	ClientID communication.ClientID //链接ID
 	RoomID   communication.RoomID   //连接所在的房间ID
 }
 
 //发送String类型的消息
-func (bc BarrageConn) SendMsg(msg string) (uint64, error) {
-
+func (bc BarrageConn) SendStringMsg(msg string) (uint64, error) {
+	return 0, nil
 }
 
 //发送[]byte类型的消息
-func (bc BarrageConn) SendMsg(msg []byte) (uint64, error) {
-
+func (bc BarrageConn) SendByteMsg(msg []byte) (uint64, error) {
+	return 0, nil
 }

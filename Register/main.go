@@ -29,9 +29,17 @@ func init() {
 	file.Read(content)
 	fmt.Println(string(content))
 
+	/**
 	fmt.Printf("%v\n", runtime.RegisterConfig)
 	json.Unmarshal(content, &runtime.RegisterConfig)
 	fmt.Printf("%v\n", runtime.RegisterConfig)
+	**/
+	runtime.RegisterConfig.BootLogFile = "aaaa"
+	runtime.RegisterConfig.ErrorLogFile = "bbb"
+	runtime.RegisterConfig.OpenHost = "0.0.0.0"
+	runtime.RegisterConfig.Port = 2346
+	aaa, err := json.Marshal(runtime.RegisterConfig)
+	fmt.Println(string(aaa), err)
 }
 
 func main() {
