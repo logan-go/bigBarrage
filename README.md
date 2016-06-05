@@ -32,3 +32,9 @@ ConnectKeeper：
     3.定期对Register发送本机的信息，包括：本机所有房间，房间人数，
 
 ```
+
+###系统基本逻辑
+```
+1.Register只负责记录汇总信息，并且根据触发，把最新信息发送到Register的发布Key去
+2.ConnectKeeper订阅Redis的key，获得消息之后发送key到Client端~
+```
